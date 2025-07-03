@@ -1,3 +1,5 @@
+"use client";
+
 import { useId } from "react";
 import css from "./NoteForm.module.css";
 import { Formik, Form, Field, type FormikHelpers, ErrorMessage } from "formik";
@@ -5,10 +7,7 @@ import * as Yup from "yup";
 import type { NewNoteData } from "../../types/note";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { createNote } from "@/lib/api";
-
-interface NoteFormProps {
-  onClose: () => void;
-}
+import { useRouter } from "next/navigation";
 
 const initialFormValues: NewNoteData = {
   title: "",
@@ -16,9 +15,12 @@ const initialFormValues: NewNoteData = {
   tag: "Todo",
 };
 
-const NoteForm = ({ onClose }: NoteFormProps) => {
+const NoteForm = () => {
   const fieldId = useId();
   const queryClient = useQueryClient();
+  const router = useRouter();
+
+  const onClose = () => router.push("/notes/filter/All");
 
   //SENDING FORM ON SUBMIT
 
