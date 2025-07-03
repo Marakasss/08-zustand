@@ -11,16 +11,17 @@ interface NotesProps {
 export const generateMetadata = async ({ params }: NotesProps) => {
   const { slug } = await params;
   const tag = slug.length > 0 && slug[0] !== "All" ? (slug[0] as Tag) : "All";
+  const title = tag === "All" ? "All notes" : `${tag} notes`;
+  const description =
+    tag === "All" ? "All notes collection" : `Notes relating to ${tag}`;
 
   return {
-    title: tag === "All" ? "All notes" : `${tag} notes`,
-    description:
-      tag === "All" ? "All notes collection" : `Notes relating to ${tag}`,
+    title,
+    description,
 
     openGraph: {
-      title: tag === "All" ? "All notes" : `${tag} notes`,
-      description:
-        tag === "All" ? "All notes collection" : `Notes relating to ${tag}`,
+      title,
+      description,
 
       url: `https://08-zustand-psi.vercel.app/filter/${tag}`,
       siteName: "NoteHub",
@@ -36,9 +37,8 @@ export const generateMetadata = async ({ params }: NotesProps) => {
     },
     twitter: {
       card: "summary_large_image",
-      title: tag === "All" ? "All notes" : `${tag} notes`,
-      description:
-        tag === "All" ? "All notes collection" : `Notes relating to ${tag}`,
+      title,
+      description,
 
       images: ["https://ac.goit.global/fullstack/react/notehub-og-meta.jpg"],
     },
