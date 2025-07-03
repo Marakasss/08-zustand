@@ -115,7 +115,7 @@ const NoteForm = () => {
           onChange={handleChange}
           defaultValue={draft.content}
         />
-        {alert.title && <div className={css.error}>{alert.content}</div>}
+        {alert.content && <div className={css.error}>{alert.content}</div>}
       </div>
 
       {/* -----Select tag field----- */}
