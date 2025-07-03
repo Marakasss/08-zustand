@@ -1,7 +1,7 @@
 "use client";
 import css from "../../../notes/[id]/NoteDetails.module.css";
 import { useParams, useRouter } from "next/navigation";
-import { useQuery } from "@tanstack/react-query";
+import { keepPreviousData, useQuery } from "@tanstack/react-query";
 import { fetchNoteById } from "@/lib/api";
 import Modal from "@/components/Modal/Modal";
 import { useCallback } from "react";
@@ -13,6 +13,7 @@ const NotePreviewClient = () => {
     queryKey: ["note", id],
     queryFn: () => fetchNoteById(Number(id)),
     refetchOnMount: false,
+    placeholderData: keepPreviousData,
   });
 
   const router = useRouter();
