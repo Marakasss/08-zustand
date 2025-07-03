@@ -1,6 +1,8 @@
 import { Metadata } from "next";
 import NotFoundClient from "./NotFound.client";
 
+//Metadata----------------------------------------
+
 export const metadata: Metadata = {
   title: "Page not found",
   description: "The page you are looking for does not exist.",
@@ -19,6 +21,8 @@ export const metadata: Metadata = {
     type: "website",
   },
 };
+
+//Component----------------------------------------
 
 const NotFound = () => {
   return <NotFoundClient />;
