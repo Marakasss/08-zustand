@@ -14,6 +14,7 @@ export const generateMetadata = async ({ params }: NotesProps) => {
   const title = tag === "All" ? "All notes" : `${tag} notes`;
   const description =
     tag === "All" ? "All notes collection" : `Notes relating to ${tag}`;
+  const url = "https://ac.goit.global/fullstack/react/notehub-og-meta.jpg";
 
   return {
     title,
@@ -27,7 +28,7 @@ export const generateMetadata = async ({ params }: NotesProps) => {
       siteName: "NoteHub",
       images: [
         {
-          url: "https://ac.goit.global/fullstack/react/notehub-og-meta.jpg",
+          url,
           width: 1200,
           height: 630,
           alt: "NoteHub App",
@@ -40,7 +41,7 @@ export const generateMetadata = async ({ params }: NotesProps) => {
       title,
       description,
 
-      images: ["https://ac.goit.global/fullstack/react/notehub-og-meta.jpg"],
+      images: [url],
     },
   };
 };

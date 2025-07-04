@@ -26,13 +26,15 @@ const NoteForm = () => {
     >
   ) => {
     const { name, value } = event.target;
-    setDraft({
+
+    const updatedDraft = {
       ...draft,
       [name]: value,
-    });
+    };
+    setDraft(updatedDraft);
 
     validationSchema
-      .validateAt(name, draft)
+      .validateAt(name, updatedDraft)
       .then(() => setAlert((prev) => ({ ...prev, [name]: "" })))
       .catch((err) => setAlert((prev) => ({ ...prev, [name]: err.message })));
   };

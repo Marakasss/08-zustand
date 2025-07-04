@@ -6,6 +6,7 @@ import {
   HydrationBoundary,
   QueryClient,
 } from "@tanstack/react-query";
+import { Metadata } from "next";
 
 //Types--------------------------------------------
 
@@ -14,8 +15,11 @@ interface NoteDetailsProps {
 }
 
 //Metadata----------------------------------------
+const url = "https://ac.goit.global/fullstack/react/notehub-og-meta.jpg";
 
-export const generateMetadata = async ({ params }: NoteDetailsProps) => {
+export const generateMetadata = async ({
+  params,
+}: NoteDetailsProps): Promise<Metadata> => {
   const { id } = await params;
   const { title, content } = await fetchNoteById(Number(id));
   const snippet = content.length > 30 ? content.slice(0, 30) + "..." : content;
@@ -31,7 +35,7 @@ export const generateMetadata = async ({ params }: NoteDetailsProps) => {
       siteName: "NoteHub",
       images: [
         {
-          url: "https://ac.goit.global/fullstack/react/notehub-og-meta.jpg",
+          url,
           width: 1200,
           height: 630,
           alt: "NoteHub App",
@@ -43,7 +47,7 @@ export const generateMetadata = async ({ params }: NoteDetailsProps) => {
       card: "summary_large_image",
       title: title || "Note details",
       description: snippet,
-      images: ["https://ac.goit.global/fullstack/react/notehub-og-meta.jpg"],
+      images: [url],
     },
   };
 };

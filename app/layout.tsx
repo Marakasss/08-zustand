@@ -16,6 +16,8 @@ const roboto = Roboto({
 
 //Metadata----------------------------------------
 
+const url = "https://ac.goit.global/fullstack/react/notehub-og-meta.jpg";
+
 export const metadata: Metadata = {
   title: "NoteHub",
   description:
@@ -27,7 +29,7 @@ export const metadata: Metadata = {
     siteName: "NoteHub",
     images: [
       {
-        url: "https://ac.goit.global/fullstack/react/notehub-og-meta.jpg",
+        url,
         width: 1200,
         height: 630,
         alt: "NoteHub App",
@@ -39,7 +41,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "NoteHub App",
     description: "A simple application for managing personal notes.",
-    images: ["https://ac.goit.global/fullstack/react/notehub-og-meta.jpg"],
+    images: [url],
   },
 };
 

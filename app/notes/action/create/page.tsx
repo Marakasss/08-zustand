@@ -7,10 +7,10 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Create Note",
-  description: "Creating a new note form",
+  description: "Create a new note in NoteHub",
   openGraph: {
     title: "Create Note",
-    description: "Creating a new note form",
+    description: "Create a new note in NoteHub",
     url: "https://08-zustand-psi.vercel.app/notes/action/create",
     siteName: "NoteHub",
     images: [
@@ -26,10 +26,12 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Create Note",
-    description: "Creating a new note form",
+    description: "Create a new note in NoteHub",
     images: ["https://ac.goit.global/fullstack/react/notehub-og-meta.jpg"],
   },
 };
+
+//Component----------------------------------------
 
 const CreateNote = () => {
   return (
