@@ -1,6 +1,7 @@
 import { fetchNotes } from "@/lib/api";
 import NotesClient from "./Notes.client";
 import { Tag } from "@/types/note";
+import { Metadata } from "next";
 
 interface NotesProps {
   params: Promise<{ slug: string[] }>;
@@ -8,7 +9,9 @@ interface NotesProps {
 
 //Metadata----------------------------------------
 
-export const generateMetadata = async ({ params }: NotesProps) => {
+export const generateMetadata = async ({
+  params,
+}: NotesProps): Promise<Metadata> => {
   const { slug } = await params;
   const tag = slug.length > 0 && slug[0] !== "All" ? (slug[0] as Tag) : "All";
   const title = tag === "All" ? "All notes" : `${tag} notes`;
